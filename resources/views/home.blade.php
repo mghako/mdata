@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome from MData!
                 </div>
             </div>
         </div>
