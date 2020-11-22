@@ -15,17 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['verified', 'auth'])->get('/home', 'HomeController@index')->name('home');
 // Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+
+
 // profile routes
-Route::get('profile', 'ProfileController@index')->name('profile.index');
+Route::middleware(['verified','auth'])->get('profile', 'ProfileController@index')->name('profile.index');
 
 // TOken Controller
 // create token
 // Route::post('tokens', 'TokenController@store')->name('tokens.store');
-
-Route::resource('cities', 'CityController');
-Route::resource('townships', 'TownshipController');
-Route::resource('tokens', 'TokenController');
+Route::middleware(['verified', 'auth'])->group(function() {
+    Route::resources([
+        'cities' => 'CityController',
+        'townships' => 'TownshipController',
+        'tokens' => 'TokenController'
+    ]);
+});
