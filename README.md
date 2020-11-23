@@ -11,4 +11,5 @@ Mdata is just a simple json data of cities and townships in myanmar. For now Mda
 
 ## Summary
 
-I built this just for myselft xD. But i think this will eventually grow up.
+I built this just for myselft xD. But i think this will be a great place.
+If you would like to something just something, plz email me @htetaungko@yahoo.com.
